@@ -23,12 +23,18 @@ const playGame = (sides, number) => {
   return diceSum;
 }
 
-console.log(playGame(6,3))
+const myArgs = process.argv.slice(2);
 
+const result = () => {
+  const resultSum = playGame(myArgs[0], myArgs[1]);
+  return console.log(resultSum);
+};
 
-// process.argv.forEach((val, index) => {
-//   console.log(`${index}: ${val}`);
-// });
+if (result() === 10) {
+  return console.log(`You win!`);
+} else {
+  return console.log(`You lose!`);
+};
 
 // if (dice1rand === dice2rand) {
 //   return console.log(`You rolled ${dice1rand} and ${dice2rand}, you super win!`);
