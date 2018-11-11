@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^23.6.0"
+  }
+}
