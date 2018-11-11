@@ -13,7 +13,6 @@ const diceAmount = (sides,number) => {
 
 const playGame = (sides, number) => {
   const diceArray = diceAmount(sides, number);
-  console.log(diceArray);
   const diceSum = diceArray.reduce((accumulator, currentValue) => accumulator + currentValue);
   if (diceArray[0] === diceArray[1]) {
     console.log(`You rolled ${diceSum}, You super win!`);
