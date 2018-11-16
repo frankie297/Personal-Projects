@@ -11,7 +11,7 @@ const generateDice = (sides) => {
 
 const diceAmount = (sides,number) => {
   const dice = [];
-  for (die = 0; die < number; die++) {
+  for (let die = 0; die < number; die++) {
     dice.push(generateDice(sides));
   }
   return dice;
@@ -20,26 +20,13 @@ const diceAmount = (sides,number) => {
 const playGame = (sides, number) => {
   const diceArray = diceAmount(sides, number);
   const diceSum = diceArray.reduce((accumulator, currentValue) => accumulator + currentValue);
-  return diceSum;
+  if (diceSum % 2 == 0) {
+    console.log(`You rolled ${diceSum}, You win!`);
+  } else {
+    console.log(`You rolled ${diceSum}, You lose!`);
+  };
 }
 
-console.log(playGame(6,3))
+const myArgs = process.argv.slice(2);
 
-
-// process.argv.forEach((val, index) => {
-//   console.log(`${index}: ${val}`);
-// });
-
-// if (dice1rand === dice2rand) {
-//   return console.log(`You rolled ${dice1rand} and ${dice2rand}, you super win!`);
-// } else if (diceSum % 2 == 0) {
-//   return console.log(`You rolled ${diceSum}, you win!`);
-// } else {
-//   return console.log(`You rolled ${diceSum}, roll again!`);
-// };
-
-// const result = () =>
-//   dice1rand === dice2rand ? `You rolled ${dice1rand} and ${dice2rand}, you super win!`
-//   : diceSum % 2 == 0 ? `You rolled ${diceSum}, you win!`
-//   : `You rolled ${diceSum}, roll again!`;
-//
+const gameResult = playGame(myArgs[0], myArgs[1]);
